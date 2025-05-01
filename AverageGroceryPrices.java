@@ -13,6 +13,7 @@ public class AverageGroceryPrices
             System.out.println("\nEnter the name of the file containing grocery data: ");
             String fileName = input.nextLine();
 
+            // Check if the file name is empty
             if (fileName.isEmpty()) 
             {
                 System.out.println("File name cannot be empty. Exiting program.");
@@ -25,7 +26,6 @@ public class AverageGroceryPrices
 
             // Call the loadGroceryData method to read grocery data from the file
             loadGroceryData(fileName, names, prices);
-            System.out.println("\nGrocery data loaded successfully. Data written to grocery_report.txt.");
             input.close(); // Close the scanner
         }
         catch (Exception e) 
@@ -52,12 +52,19 @@ public class AverageGroceryPrices
                     count++; // Increment the count of groceries
                 }
             }
+            // Check if the grocery data is empty
+            if (count == 0) 
+            {
+                System.out.println("\nNo grocery data found in the file.");
+                return; // Exit if no data is found
+            }
 
             // Pass data to the calculateAveragePrice method and call it
             double average = calculateAveragePrice(prices, count);
             
             // Pass data to the writeReport method and call it
             writeReport(names, prices, count, average);
+            System.out.println("\nGrocery data loaded successfully. Data written to grocery_report.txt.");
         } 
         catch (Exception e) 
         {
@@ -89,8 +96,8 @@ public class AverageGroceryPrices
         // Write the report to a file named grocery_report.txt
         try (PrintWriter output = new PrintWriter(new File("grocery_report.txt"))) 
         {
-            output.println("Grocery Report");
-            output.println("---------------");
+            output.println("Grocery Items Report");
+            output.println("---------------------");
             for (int i = 0; i < count; i++) 
             {
                 output.printf("%s: $%.2f%n", names[i], prices[i]); // Print each grocery name and price
