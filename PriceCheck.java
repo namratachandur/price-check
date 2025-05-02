@@ -17,6 +17,7 @@ public class PriceCheck
             if (fileName.isEmpty()) 
             {
                 System.out.println("File name cannot be empty. Exiting program.");
+                input.close(); // Close the scanner
                 return; // Exit if the file name is empty
             }
 
