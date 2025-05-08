@@ -2,9 +2,11 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class PriceCheck {
+public class PriceCheck 
+{
 
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		try
 		{
 			// Prompt the user for the name of the file containing grocery data
