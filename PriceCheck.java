@@ -67,7 +67,7 @@ public class PriceCheck {
 			
 			// Pass data to the writeReport method and call it
 			writeReport(names, prices, count, average);
-			System.out.println("\nGorcery data written successfully to file named gorcery_report.txt.");
+			System.out.println("\nGrocery data written successfully to file named gorcery_report.txt.");
 			fileInput.close();
 		}
 		catch (Exception e)
